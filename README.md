@@ -1,0 +1,1 @@
+Blog Coder is a full-stack web application designed for developers to share their coding journeys. Built with the MEN Stack (MongoDB, Express, Node.js), this project demonstrates a complete CRUD (Create, Read, Update, Delete) workflow with a clean, modern UI and a focus on server-side rendering.
