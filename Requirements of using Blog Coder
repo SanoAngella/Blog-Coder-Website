@@ -1,0 +1,24 @@
+To use Blog Coder, you should have the following accounts:
+
+1. Node.js installed on your computer
+2. MongoDB Atlas Account
+3. DataBase Cluster
+4. Database User
+
+Packets required to install
+1. Express
+2. Mongoose
+3. ejs
+4. morgan
+
+Step-by-Step Instructions for Users
+
+1. Clone the project to your local machine.
+2. Install dependencies: Run npm install in your terminal.
+3. Set up Database:
+4. Create a MongoDB Atlas cluster.
+5. Get your connection string (URI).
+6. Configure Environment:
+7. Create a .env file in the root directory.
+8. Add your URI: MONGODB_URI=mongodb+srv://username:password@cluster....
+9. Start the App: Run node app or nodemon app
