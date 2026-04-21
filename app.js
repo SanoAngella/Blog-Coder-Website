@@ -9,6 +9,11 @@ const PORT = process.env.PORT || 3000;
 
 const app = express();
 
+if (!DBURI) {
+  console.error('Missing DBURL in .env. Add your MongoDB URI and restart the app.');
+  process.exit(1);
+}
+
 mongoose.connect(DBURI)
   .then(() => {
     console.log('connected to db');
