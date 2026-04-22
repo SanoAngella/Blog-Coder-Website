@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('./partials/head.ejs') %>
+
+<body>
+  <%- include('./partials/nav.ejs') %>
+
+  <section class="profile-form-wrap content">
+    <h2>Build Your Profile</h2>
+    <p class="profile-form-subtitle">This is your personal profile for now. We will expand to multi-user profiles next.</p>
+
+    <form action="/profile" method="POST" class="profile-form">
+      <label for="fullName">Full Name</label>
+      <input id="fullName" name="fullName" type="text" required value="<%= profile ? profile.fullName : '' %>">
+
+      <label for="headline">Headline</label>
+      <input id="headline" name="headline" type="text" required value="<%= profile ? profile.headline : '' %>" placeholder="Full-Stack Developer | Tech Writer">
+
+      <label for="bio">Bio</label>
+      <textarea id="bio" name="bio" required placeholder="Write a short introduction about yourself..."><%= profile ? profile.bio : '' %></textarea>
+
+      <label for="location">Location</label>
+      <input id="location" name="location" type="text" value="<%= profile ? profile.location : '' %>" placeholder="Kigali, Rwanda">
+
+      <label for="skills">Skills (comma separated)</label>
+      <input id="skills" name="skills" type="text" value="<%= profile && profile.skills ? profile.skills.join(', ') : '' %>" placeholder="Node.js, MongoDB, Express, React">
+
+      <label for="githubUrl">GitHub URL</label>
+      <input id="githubUrl" name="githubUrl" type="url" value="<%= profile ? profile.githubUrl : '' %>" placeholder="https://github.com/your-username">
+
+      <label for="linkedinUrl">LinkedIn URL</label>
+      <input id="linkedinUrl" name="linkedinUrl" type="url" value="<%= profile ? profile.linkedinUrl : '' %>" placeholder="https://www.linkedin.com/in/your-username">
+
+      <button type="submit">Save Profile</button>
+    </form>
+  </section>
+
+  <%- include('./partials/footer.ejs') %>
+</body>
+</html>

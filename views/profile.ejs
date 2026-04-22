@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('./partials/head.ejs') %>
+
+<body>
+  <%- include('./partials/nav.ejs') %>
+
+  <section class="profile-page content">
+    <% if (profile) { %>
+      <div class="profile-card">
+        <p class="profile-label">Developer Profile</p>
+        <h2><%= profile.fullName %></h2>
+        <p class="profile-headline"><%= profile.headline %></p>
+
+        <p class="profile-bio"><%= profile.bio %></p>
+
+        <% if (profile.location) { %>
+          <p class="profile-meta"><strong>Location:</strong> <%= profile.location %></p>
+        <% } %>
+
+        <% if (profile.skills && profile.skills.length > 0) { %>
+          <div class="profile-skills">
+            <% profile.skills.forEach(skill => { %>
+              <span><%= skill %></span>
+            <% }) %>
+          </div>
+        <% } %>
+
+        <div class="profile-links">
+          <% if (profile.githubUrl) { %>
+            <a href="<%= profile.githubUrl %>" target="_blank" rel="noreferrer">GitHub</a>
+          <% } %>
+          <% if (profile.linkedinUrl) { %>
+            <a href="<%= profile.linkedinUrl %>" target="_blank" rel="noreferrer">LinkedIn</a>
+          <% } %>
+        </div>
+
+        <a class="profile-edit-link" href="/profile/edit">Edit Profile</a>
+      </div>
+    <% } else { %>
+      <div class="profile-empty">
+        <h2>No profile yet</h2>
+        <p>Start by creating your first profile details.</p>
+        <a class="profile-edit-link" href="/profile/edit">Create My Profile</a>
+      </div>
+    <% } %>
+  </section>
+
+  <%- include('./partials/footer.ejs') %>
+</body>
+</html>
