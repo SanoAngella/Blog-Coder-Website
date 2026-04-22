@@ -39,6 +39,9 @@ app.get('/about', (req, res) => {
 });
 
 app.use('/blogs', blogRoutes);
+app.get('/profiles', (req, res) => {
+  res.redirect('/profile');
+});
 app.use('/profile', profileRoutes);
 
 app.use((req, res) => {
