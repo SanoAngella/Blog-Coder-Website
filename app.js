@@ -3,6 +3,7 @@ const morgan = require('morgan');
 const mongoose = require('mongoose');
 require('dotenv').config();
 const blogRoutes = require('./route/blogroutes');
+const profileRoutes = require('./route/profileroutes');
 
 const DBURI = process.env.DBURL;
 const PORT = process.env.PORT || 3000;
@@ -38,6 +39,7 @@ app.get('/about', (req, res) => {
 });
 
 app.use('/blogs', blogRoutes);
+app.use('/profile', profileRoutes);
 
 app.use((req, res) => {
   res.status(404).render('404', { title: 'Page not found' });
