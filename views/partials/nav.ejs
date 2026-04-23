@@ -9,7 +9,16 @@
             <li><a href="/">Blogs</a></li>
             <li><a href="/profile">Profile</a></li>
             <li><a href="/about">About</a></li>
-            <li><a href="/blogs/create">New Blog</a></li>
+            <% if (isAuthenticated) { %>
+                <li><a href="/blogs/create">New Blog</a></li>
+                <li>
+                    <form action="/logout" method="POST" class="logout-form">
+                        <button type="submit">Logout</button>
+                    </form>
+                </li>
+            <% } else { %>
+                <li><a href="/login">Login</a></li>
+            <% } %>
         </ul>
     
     </nav>
