@@ -1,5 +1,6 @@
 const express = require('express');
 const Blog = require('../models/blog');
+const requireAuth = require('../middleware/requireauth');
 
 const router = express.Router();
 
@@ -15,7 +16,7 @@ router.get('/', (req, res) => {
     });
 });
 
-router.post('/', (req, res) => {
+router.post('/', requireAuth, (req, res) => {
   const blog = new Blog(req.body);
 
   blog
@@ -29,7 +30,7 @@ router.post('/', (req, res) => {
     });
 });
 
-router.get('/create', (req, res) => {
+router.get('/create', requireAuth, (req, res) => {
   res.render('create', { title: 'New Blog' });
 });
 
@@ -49,7 +50,7 @@ router.get('/:id', (req, res) => {
     });
 });
 
-router.delete('/:id', (req, res) => {
+router.delete('/:id', requireAuth, (req, res) => {
   const id = req.params.id;
 
   Blog.findByIdAndDelete(id)

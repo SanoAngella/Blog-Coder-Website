@@ -1,5 +1,6 @@
 const express = require('express');
 const Profile = require('../models/profile');
+const requireAuth = require('../middleware/requireauth');
 
 const router = express.Router();
 
@@ -16,7 +17,7 @@ router.get('/', (req, res) => {
     });
 });
 
-router.get('/edit', (req, res) => {
+router.get('/edit', requireAuth, (req, res) => {
   Profile.findOne({ ownerKey: OWNER_KEY })
     .then((profile) => {
       res.render('profile-edit', { title: 'Edit Profile', profile });
@@ -27,7 +28,7 @@ router.get('/edit', (req, res) => {
     });
 });
 
-router.post('/', (req, res) => {
+router.post('/', requireAuth, (req, res) => {
   const skills = (req.body.skills || '')
     .split(',')
     .map((skill) => skill.trim())
