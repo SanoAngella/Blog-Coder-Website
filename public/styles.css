@@ -405,6 +405,16 @@ footer {
   background: #111;
 }
 
+.auth-switch {
+  margin-top: 14px;
+  color: #555;
+}
+
+.auth-switch a {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
 @media (max-width: 768px) {
   .profile-card,
   .profile-empty,
