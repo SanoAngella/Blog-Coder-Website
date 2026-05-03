@@ -50,7 +50,7 @@ app.get('/', (req, res) => {
 
 app.get('/about', (req, res) => {
   res.render('about', { title: 'About' });
-})
+});
 
 app.use('/blogs', blogRoutes);
 app.get('/profiles', (req, res) => {
